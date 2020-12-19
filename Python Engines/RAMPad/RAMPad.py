@@ -3,6 +3,7 @@ import os
 def rampad():
 	while True:
 		pause = ""
+		user_input = ""
 
 		os.system("clear")
 		print("RAMPad")

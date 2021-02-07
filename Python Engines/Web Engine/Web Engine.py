@@ -1,10 +1,14 @@
+#Documentation:
+#https://www.geeksforgeeks.org/downloading-files-web-using-python/
+#https://www.w3schools.com/PYTHON/ref_requests_get.asp
+
 import os
 import requests
 
 def web_engine():
 	os.system("clear")
 
-	print("1 = no log | 2 = log")
+	print("1 = data no log | 2 = data log | 3 = file")
 	user_input = input()
 
 	if user_input == "1":
@@ -13,16 +17,37 @@ def web_engine():
 	if user_input == "2":
 		log()
 
+	if user_input == "3":
+		os.system("clear")
+
+		print("1 = image | 2 = pdf")
+		user_file = input()
+
+		if user_file == "1":
+			image()
+
+		if user_file == "2":
+			pdf()
+
 def no_log():
+	secure = ""
+
 	os.system("clear")
 
 	print("Enter website:")
 	user_input = input()
+	print("\nSecure? y/n")
+	secure_input = input()
 
-	secure = "https://"
+	if secure_input == "y":
+		secure = "https://"
+
+	if secure_input == "n":
+		secure = "http://"
+
 	output = secure + user_input
 
-	final = requests.get(output)
+	final = requests.get(output, verify = True)
 
 	print("")
 	print("Cookies: " + str(final.cookies))
@@ -75,17 +100,26 @@ def no_log():
 	final.close()
 
 def log():
+	secure = ""
+
 	os.system("clear")
 
 	file = open("Web Engine Log.txt", "w+")
 
 	print("Enter website:")
 	user_input = input()
+	print("\nSecure? y/n")
+	secure_input = input()
 
-	secure = "https://"
+	if secure_input == "y":
+		secure = "https://"
+
+	if secure_input == "n":
+		secure = "http://"
+
 	output = secure + user_input
 
-	final = requests.get(output)
+	final = requests.get(output, verify = True)
 
 	print("")
 	print("Cookies: " + str(final.cookies))
@@ -142,10 +176,66 @@ def log():
 	final.close()
 
 	print("")
-	print("URL: " + str(final.url))
+	print("URL: " + str(final.url)) 
 	file.write("\n\nURL: " + str(final.url) + "\n\n")
 
 	final.close()
 	file.close()
+
+def image():
+	secure = ""
+
+	os.system("clear")
+
+	print("Enter website:")
+	user_input = input()
+	print("\nEnter desired name:")
+	name = input()
+	print("\nSecure? y/n")
+	secure_input = input()
+
+	if secure_input == "y":
+		secure = "https://"
+
+	if secure_input == "n":
+		secure = "http://"
+
+	output = secure + user_input
+
+	picture = str(output)
+
+	data = requests.get(picture, verify = True)
+
+	with open(name, "wb") as file_writer:
+		file_writer.write(data.content)
+
+def pdf():
+	secure = ""
+
+	os.system("clear")
+
+	print("Enter website:")
+	user_input = input()
+	print("\nEnter desired name:")
+	name = input()
+	print("\nSecure? y/n")
+	secure_input = input()
+
+	if secure_input == "y":
+		secure = "https://"
+
+	if secure_input == "n":
+		secure = "http://"
+
+	output = secure + user_input
+
+	pdf = output
+
+	data = requests.get(pdf, stream = True, verify = True)
+
+	with open(name, "wb") as pdf:
+		for chunk in data.iter_content(chunk_size=1024):
+			if chunk:
+             			pdf.write(chunk)
 
 web_engine()

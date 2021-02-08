@@ -12,7 +12,7 @@ import time
 def find_url(string):
 	regex = r"(?i)\b((?:https?://|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))"
 	url = re.findall(regex,string)       
-	return [x[0] for x in url] 
+	return [x[0] for x in url]
 
 def web_engine():
 	os.system("clear")
@@ -29,7 +29,7 @@ def web_engine():
 	if user_input == "3":
 		os.system("clear")
 
-		print("1 = image | 2 = pdf | 3 = all images")
+		print("1 = image | 2 = pdf | 3 = html | 4 = all images")
 		user_file = input()
 
 		if user_file == "1":
@@ -39,7 +39,13 @@ def web_engine():
 			pdf()
 
 		if user_file == "3":
+			html()
+
+		if user_file == "4":
 			all_images()
+
+	if user_input == "4":
+		spider_bot()
 
 def no_log():
 	secure = ""
@@ -121,14 +127,14 @@ def log():
 
 	os.system("clear")
 
-	file = open("Web Engine Log.txt", "w+")
-
 	print("Enter website:")
 	user_input = input()
 	print("\nSecure? y/n")
 	secure_input = input()
 
 	start = time.time()
+
+	file = open("Web Engine Log.txt", "w+")
 
 	if secure_input == "y":
 		secure = "https://"
@@ -240,6 +246,8 @@ def image():
 	end = time.time()
 	print("\nTime: " + str(end - start) + " seconds.")
 
+	data.close()
+
 def pdf():
 	secure = ""
 
@@ -273,6 +281,42 @@ def pdf():
 		for chunk in data.iter_content(chunk_size=1024):
 			if chunk:
              			pdf.write(chunk)
+
+	end = time.time()
+	print("\nTime: " + str(end - start) + " seconds.")
+
+	data.close()
+
+def html():
+	secure = ""
+
+	os.system("clear")
+
+	print("Enter website:")
+	user_input = input()
+	print("\nSecure? y/n")
+	secure_input = input()
+
+	os.system("clear")
+	print("Downloading!")
+
+	start = time.time()
+
+	if secure_input == "y":
+		secure = "https://"
+
+	if secure_input == "n":
+		secure = "http://"
+
+	output = secure + user_input
+
+	final = requests.get(output, verify = True)
+
+	file = open(user_input + ".html", "w+")
+	file.write(final.text)
+
+	final.close()
+	file.close()
 
 	end = time.time()
 	print("\nTime: " + str(end - start) + " seconds.")
@@ -367,5 +411,7 @@ def all_images():
 
 	end = time.time()
 	print("\nTime: " + str(end - start) + " seconds.")
+
+	url.close()
 
 web_engine()

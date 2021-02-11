@@ -449,20 +449,61 @@ def all_data():
 	file.close()
 
 	for i in web_list:
+		app = ".app" in i
+		bat = ".bat" in i
 		css = ".css" in i
 		doc = ".doc" in i
 		docx = ".docx" in i
+		exe = ".exe" in i
 		html = ".html" in i
 		jar = ".jar" in i
+		java = ".java" in i
 		jpeg = ".jpeg" in i
 		jpg = ".jpg" in i
 		jss = ".jss" in i
 		pdf = ".pdf" in i
 		png = ".png" in i
 		py = ".py" in i
+		sh = ".sh" in i
 		txt = ".txt" in i
 		xml = ".xml" in i
 		y = "http" in i
+
+		if app == True and y == True:
+			count += 1
+
+			picture = str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".app", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if app == True and y == False:
+			count += 1
+
+			picture = secure + str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".app", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if bat == True and y == True:
+			count += 1
+
+			picture = str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".bat", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if bat == True and y == False:
+			count += 1
+
+			picture = secure + str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".bat", "wb") as file_writer:
+				file_writer.write(data.content)
 
 		if css == True and y == True:
 			count += 1
@@ -518,6 +559,24 @@ def all_data():
 			with open("file " + str(count)  + ".docx", "wb") as file_writer:
 				file_writer.write(data.content)
 
+		if exe == True and y == True:
+			count += 1
+
+			picture = str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".exe", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if exe == True and y == False:
+			count += 1
+
+			picture = secure + str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".exe", "wb") as file_writer:
+				file_writer.write(data.content)
+
 		if html == True and y == True:
 			count += 1
 
@@ -552,6 +611,24 @@ def all_data():
 			data = requests.get(picture, verify = True)
 
 			with open("file " + str(count)  + ".jar", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if java == True and y == True:
+			count += 1
+
+			picture = str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".java", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if java == True and y == False:
+			count += 1
+
+			picture = secure + str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".java", "wb") as file_writer:
 				file_writer.write(data.content)
 
 		if jpeg == True and y == True:
@@ -660,6 +737,24 @@ def all_data():
 			data = requests.get(picture, verify = True)
 
 			with open("file " + str(count)  + ".py", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if sh == True and y == True:
+			count += 1
+
+			picture = str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".sh", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if sh == True and y == False:
+			count += 1
+
+			picture = secure + str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".sh", "wb") as file_writer:
 				file_writer.write(data.content)
 
 		if txt == True and y == True:

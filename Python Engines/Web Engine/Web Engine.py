@@ -29,7 +29,7 @@ def web_engine():
 	if user_input == "3":
 		os.system("clear")
 
-		print("1 = image | 2 = pdf | 3 = html | 4 = all images")
+		print("1 = image | 2 = pdf | 3 = html | 4 = all images | 5 = all data")
 		user_file = input()
 
 		if user_file == "1":
@@ -44,8 +44,8 @@ def web_engine():
 		if user_file == "4":
 			all_images()
 
-	if user_input == "4":
-		spider_bot()
+		if user_file == "5":
+			all_data()
 
 def no_log():
 	secure = ""
@@ -407,6 +407,295 @@ def all_images():
 			data = requests.get(picture, verify = True)
 
 			with open("image " + str(count)  + ".png", "wb") as file_writer:
+				file_writer.write(data.content)
+
+	end = time.time()
+	print("\nTime: " + str(end - start) + " seconds.")
+
+	url.close()
+
+def all_data():
+	count = 0
+	secure = ""
+
+	os.system("clear")
+
+	print("Enter website:")
+	user_input = input()
+	print("\nSecure? y/n")
+	secure_input = input()
+
+	os.system("clear")
+	print("Downloading!")
+
+	start = time.time()
+
+	if secure_input == "y":
+		secure = "https://"
+
+	if secure_input == "n":
+		secure = "http://"
+
+	output = secure + user_input
+
+	url = requests.get(output, verify = True)
+	out = str(url.text)
+	web_list = find_url(out)
+
+	file = open(user_input + ".html", "w+")
+	file.write(url.text)
+
+	url.close()
+	file.close()
+
+	for i in web_list:
+		css = ".css" in i
+		doc = ".doc" in i
+		docx = ".docx" in i
+		html = ".html" in i
+		jar = ".jar" in i
+		jpeg = ".jpeg" in i
+		jpg = ".jpg" in i
+		jss = ".jss" in i
+		pdf = ".pdf" in i
+		png = ".png" in i
+		py = ".py" in i
+		txt = ".txt" in i
+		xml = ".xml" in i
+		y = "http" in i
+
+		if css == True and y == True:
+			count += 1
+
+			picture = str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".css", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if css == True and y == False:
+			count += 1
+
+			picture = secure + str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".css", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if doc == True and y == True:
+			count += 1
+
+			picture = str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".doc", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if doc == True and y == False:
+			count += 1
+
+			picture = secure + str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".doc", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if docx == True and y == True:
+			count += 1
+
+			picture = str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".docx", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if docx == True and y == False:
+			count += 1
+
+			picture = secure + str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".docx", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if html == True and y == True:
+			count += 1
+
+			picture = str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".html", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if html == True and y == False:
+			count += 1
+
+			picture = secure + str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".html", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if jar == True and y == True:
+			count += 1
+
+			picture = str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".jar", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if jar == True and y == False:
+			count += 1
+
+			picture = secure + str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".jar", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if jpeg == True and y == True:
+			count += 1
+
+			picture = str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".jpeg", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if jpeg == True and y == False:
+			count += 1
+
+			picture = secure + str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".jpeg", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if jpg == True and y == True:
+			count += 1
+
+			picture = str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".jpg", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if jpg == True and y == False:
+			count += 1
+
+			picture = secure + str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".jpg", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if jss == True and y == True:
+			count += 1
+
+			picture = str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".jss", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if jss == True and y == False:
+			count += 1
+
+			picture = secure + str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".jss", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if pdf == True and y == True:
+			count += 1
+
+			picture = str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".pdf", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if pdf == True and y == False:
+			count += 1
+
+			picture = secure + str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".pdf", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if png == True and y == True:
+			count += 1
+
+			picture = str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".png", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if png == True and y == False:
+			count += 1
+
+			picture = secure + str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".png", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if py == True and y == True:
+			count += 1
+
+			picture = str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".py", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if py == True and y == False:
+			count += 1
+
+			picture = secure + str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".py", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if txt == True and y == True:
+			count += 1
+
+			picture = str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".txt", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if txt == True and y == False:
+			count += 1
+
+			picture = secure + str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".txt", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if xml == True and y == True:
+			count += 1
+
+			picture = str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".xml", "wb") as file_writer:
+				file_writer.write(data.content)
+
+		if xml == True and y == False:
+			count += 1
+
+			picture = secure + str(i)
+			data = requests.get(picture, verify = True)
+
+			with open("file " + str(count)  + ".xml", "wb") as file_writer:
 				file_writer.write(data.content)
 
 	end = time.time()

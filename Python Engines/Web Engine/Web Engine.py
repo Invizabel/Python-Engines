@@ -350,9 +350,9 @@ def all_images():
 	web_list = find_url(out)
 
 	for i in web_list:
-		jpeg = "jpeg" in i
-		jpg = "jpg" in i
-		png = "png" in i
+		jpeg = ".jpeg" in i
+		jpg = ".jpg" in i
+		png = ".png" in i
 		y = "http" in i
 
 		if jpeg == True and y == True:

@@ -5,6 +5,7 @@
 #https://www.w3schools.com/python/gloss_python_check_string.asp
 
 import os
+import random
 import re
 import requests
 import time
@@ -14,10 +15,10 @@ def find_url(string):
         url = re.findall(regex,string)
         return [x[0] for x in url]
 
-def web_engine():
+def forensic_engine():
         os.system("clear")
 
-        print("1 = data no log\n2 = data log\n3 = file")
+        print("1 = data no log\n2 = data log\n3 = file\n4 = Password Generator")
         user_input = input()
 
         if user_input == "1":
@@ -46,6 +47,9 @@ def web_engine():
 
                 if user_file == "5":
                         all_data()
+
+        if user_input == "4":
+                password_generator()
 
 def no_log():
         os.system("clear")
@@ -137,7 +141,7 @@ def no_log_cookies_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def no_log_cookies_not_secure():
         os.system("clear")
@@ -158,7 +162,7 @@ def no_log_cookies_not_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def no_log_encoding_secure():
         os.system("clear")
@@ -179,7 +183,7 @@ def no_log_encoding_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def no_log_encoding_not_secure():
         os.system("clear")
@@ -200,7 +204,7 @@ def no_log_encoding_not_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def no_log_headers_secure():
         os.system("clear")
@@ -221,7 +225,7 @@ def no_log_headers_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def no_log_headers_not_secure():
         os.system("clear")
@@ -242,7 +246,7 @@ def no_log_headers_not_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def no_log_html_code_secure():
         os.system("clear")
@@ -263,7 +267,7 @@ def no_log_html_code_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def no_log_html_code_not_secure():
         os.system("clear")
@@ -284,7 +288,7 @@ def no_log_html_code_not_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def no_log_ok_secure():
         os.system("clear")
@@ -305,7 +309,7 @@ def no_log_ok_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def no_log_ok_not_secure():
         os.system("clear")
@@ -326,7 +330,7 @@ def no_log_ok_not_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def no_log_permanent_redirect_secure():
         os.system("clear")
@@ -347,7 +351,7 @@ def no_log_permanent_redirect_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def no_log_permanent_redirect_not_secure():
         os.system("clear")
@@ -368,7 +372,7 @@ def no_log_permanent_redirect_not_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def no_log_reason_secure():
         os.system("clear")
@@ -389,7 +393,7 @@ def no_log_reason_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def no_log_reason_not_secure():
         os.system("clear")
@@ -410,7 +414,7 @@ def no_log_reason_not_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
         
 def no_log_redirect_secure():
         os.system("clear")
@@ -431,7 +435,7 @@ def no_log_redirect_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def no_log_redirect_not_secure():
         os.system("clear")
@@ -452,7 +456,7 @@ def no_log_redirect_not_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def no_log_status_code_secure():
         os.system("clear")
@@ -473,7 +477,7 @@ def no_log_status_code_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def no_log_status_code_not_secure():
         os.system("clear")
@@ -494,7 +498,7 @@ def no_log_status_code_not_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def no_log_url_secure():
         os.system("clear")
@@ -515,7 +519,7 @@ def no_log_url_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def no_log_url_not_secure():
         os.system("clear")
@@ -536,7 +540,7 @@ def no_log_url_not_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def log():
         os.system("clear")
@@ -630,7 +634,7 @@ def log_cookies_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def log_cookies_not_secure():
         os.system("clear")
@@ -653,7 +657,7 @@ def log_cookies_not_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def log_encoding_secure():
         os.system("clear")
@@ -676,7 +680,7 @@ def log_encoding_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def log_encoding_not_secure():
         os.system("clear")
@@ -699,7 +703,7 @@ def log_encoding_not_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def log_headers_secure():
         os.system("clear")
@@ -722,7 +726,7 @@ def log_headers_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def log_headers_not_secure():
         os.system("clear")
@@ -745,7 +749,7 @@ def log_headers_not_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def log_html_code_secure():
         os.system("clear")
@@ -768,7 +772,7 @@ def log_html_code_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def log_html_code_not_secure():
         os.system("clear")
@@ -791,7 +795,7 @@ def log_html_code_not_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def log_ok_secure():
         os.system("clear")
@@ -814,7 +818,7 @@ def log_ok_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def log_ok_not_secure():
         os.system("clear")
@@ -837,7 +841,7 @@ def log_ok_not_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def log_permanent_redirect_secure():
         os.system("clear")
@@ -860,7 +864,7 @@ def log_permanent_redirect_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def log_permanent_redirect_not_secure():
         os.system("clear")
@@ -883,7 +887,7 @@ def log_permanent_redirect_not_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def log_reason_secure():
         os.system("clear")
@@ -906,7 +910,7 @@ def log_reason_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def log_reason_not_secure():
         os.system("clear")
@@ -929,7 +933,7 @@ def log_reason_not_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def log_redirect_secure():
         os.system("clear")
@@ -952,7 +956,7 @@ def log_redirect_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def log_redirect_not_secure():
         os.system("clear")
@@ -975,7 +979,7 @@ def log_redirect_not_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def log_status_code_secure():
         os.system("clear")
@@ -998,7 +1002,7 @@ def log_status_code_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def log_status_code_not_secure():
         os.system("clear")
@@ -1021,7 +1025,7 @@ def log_status_code_not_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def log_url_secure():
         os.system("clear")
@@ -1044,7 +1048,7 @@ def log_url_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
 
 def log_url_not_secure():
         os.system("clear")
@@ -1067,7 +1071,7 @@ def log_url_not_secure():
 
         pause = input()
 
-        web_engine()
+        forensic_engine()
         
 def image():
         secure = ""
@@ -1770,4 +1774,31 @@ def all_data():
 
         url.close()
 
-web_engine()
+def password_generator():
+        os.system("clear")
+        
+        output = ""
+        
+        password_storage = [""]
+        password_storage.clear()
+        
+        password_characters = ["A", "a", "B", "b", "C", "c", "D", "d", "E", "e", "F", "f", "G", "g", "H", "h", "I", "i", "J", "j", "K", "k", "L", "l", "M", "m", "N", "n", "O", "o", "P", "p", "Q", "q", "R", "r", "S", "s", "T", "t", "U", "u", "V", "v", "W", "w", "X", "x", "Y", "y", "Z", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")"]
+        
+        print("What is the password length?")
+        password_length = int(input())
+
+        for i in range (0,password_length):
+                rand = random.randint(0,len(password_characters) - 1)
+
+                password_storage.append(password_characters[rand])
+
+        for i in password_storage:
+                output += i
+
+        print("Password:",output)
+
+        pause = input()
+
+        forensic_engine()
+        
+forensic_engine()

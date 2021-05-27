@@ -5,6 +5,7 @@
 #https://www.w3schools.com/python/gloss_python_check_string.asp
 
 import os
+import random
 import re
 import requests
 import time
@@ -17,7 +18,7 @@ def find_url(string):
 def web_engine():
         os.system("clear")
 
-        print("1 = data no log\n2 = data log\n3 = file")
+        print("1 = data no log\n2 = data log\n3 = file\n4 = Password Generator")
         user_input = input()
 
         if user_input == "1":
@@ -46,6 +47,9 @@ def web_engine():
 
                 if user_file == "5":
                         all_data()
+
+        if user_input == "4":
+                password_generator()
 
 def no_log():
         os.system("clear")
@@ -1769,5 +1773,32 @@ def all_data():
         print("\nTime: " + str(end - start) + " seconds.")
 
         url.close()
+
+def password_generator():
+        os.system("clear")
+        
+        output = ""
+        
+        password_storage = [""]
+        password_storage.clear()
+        
+        password_characters = ["A", "a", "B", "b", "C", "c", "D", "d", "E", "e", "F", "f", "G", "g", "H", "h", "I", "i", "J", "j", "K", "k", "L", "l", "M", "m", "N", "n", "O", "o", "P", "p", "Q", "q", "R", "r", "S", "s", "T", "t", "U", "u", "V", "v", "W", "w", "X", "x", "Y", "y", "Z", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")"]
+        
+        print("What is the password length?")
+        password_length = int(input())
+
+        for i in range (0,password_length):
+                rand = random.randint(0,len(password_characters) - 1)
+
+                password_storage.append(password_characters[rand])
+
+        for i in password_storage:
+                output += i
+
+        print("Password:",output)
+
+        pause = input()
+
+        web_engine()
 
 web_engine()
